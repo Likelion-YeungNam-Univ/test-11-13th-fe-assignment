@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import LanguageSelector from "./components/LanguageSelector";
-
+import LanguageContext from "./contexts/LanguageContext";
 const NavBar = () => {
   const navigate = useNavigate();
+  const { t } = useContext(LanguageContext);
   return (
     <nav className="p-4 bg-black text-white flex flex-row">
       <div>
@@ -11,13 +12,13 @@ const NavBar = () => {
           ←
         </button>
         <button className="mr-8" onClick={() => navigate("/home")}>
-          Home
+          {t("homename")}
         </button>
         <button className="mr-8" onClick={() => navigate("/projects")}>
-          Projects
+          {t("projectsname")}
         </button>
         <button className="mr-8" onClick={() => navigate("/about")}>
-          About
+          {t("aboutname")}
         </button>
       </div>
       <div className="ml-auto">
